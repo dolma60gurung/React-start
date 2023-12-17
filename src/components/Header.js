@@ -7,7 +7,7 @@ const Header = () => {
       <h1 className=' text-7xl font-extrabold'>Logo</h1>
       <nav className='space-x-7' >
       <NavLink to='/about'>About</NavLink>
-      <NavLink to='/'>Contact</NavLink>
+      <NavLink to='/contact'>Contact</NavLink>
      
       </nav>
     </div>
