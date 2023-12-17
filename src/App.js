@@ -5,8 +5,11 @@ import About from './pages/About'
 import NotFound from './pages/NotFound'
 import RootLayOut from './components/RootLayOut'
 import Contact from './pages/Contact'
+import DetailPage from './pages/DetailPage'
 
-
+// November 27, 2023
+// Using params 
+// Using id 
 
 const App = () => {
 
@@ -16,6 +19,7 @@ const App = () => {
       <Routes>
       <Route path='/' element={<RootLayOut />} >
           <Route index element={<Home />} />
+          <Route path='detail/:id' element={<DetailPage />} />
          <Route path='about' element={<About />} />
          <Route path='contact' element={<Contact/>} />
           <Route path='*' element={<NotFound />} />
