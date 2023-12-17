@@ -1,17 +1,19 @@
-import React from 'react'
-import { meals } from '../dummy/meal_data'
-import { useNavigate } from 'react-router'
+import React, { useState } from 'react'
+
 const Home = () => {
-const nav = useNavigate();
+  const [count, setCount] = useState(0);
+  const addTo = () =>{
+    setCount((prev) => prev + 1 );
+  }
+  const minusTo = () =>{
+    setCount((prev) => prev - 1 );
+  }
+  console.log('render');
   return (
-    <div className='p-5 grid grid-cols-3 gap-5 '>
-    {meals.map((meal) => {
-      return <div  onClick={() => nav(`/detail/${meal.idCategory}`,{state: meal })} key={meal.idCategory} className='cursor-pointer' >
-        <h1>{meal.strCategory}</h1>
-        <img src={meal.strCategoryThumb} alt="" />
-        <p>{meal.strCategoryDescription.substring(0,20)+'...'}</p>
-        </div>
-    })}
+    <div className='p-5'>
+      <button onClick={addTo}>AddtTo</button>
+      <h1>{count}</h1>
+      <button onClick={minusTo}>MinusTo</button>
     </div>
   )
 }
