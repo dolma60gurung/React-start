@@ -1,3 +1,7 @@
+// November 28, 2023
+// Free meal api simple ui 
+// 
+
 import React from 'react'
 import { Route, Routes } from 'react-router'
 import Home from './pages/Home'
@@ -6,10 +10,6 @@ import NotFound from './pages/NotFound'
 import RootLayOut from './components/RootLayOut'
 import Contact from './pages/Contact'
 import DetailPage from './pages/DetailPage'
-
-// November 27, 2023
-// Using params 
-// Using id 
 
 const App = () => {
 
