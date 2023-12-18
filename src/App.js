@@ -1,8 +1,6 @@
-// November 30, 2023
-// using formik for creating form
+// December 01, 2023
 //Hooks
-//resetting the form
-//useState, 
+//useState, useEffect
 
 import React from 'react'
 import { Route, Routes } from 'react-router'
@@ -10,7 +8,6 @@ import Home from './pages/Home'
 import About from './pages/About'
 import NotFound from './pages/NotFound'
 import RootLayOut from './components/RootLayOut'
-import Contact from './pages/Contact'
 import DetailPage from './pages/DetailPage'
 
 const App = () => {
@@ -23,7 +20,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path='detail/:id' element={<DetailPage />} />
          <Route path='about' element={<About />} />
-         <Route path='/contact' element={<Contact/>} />
+         
           <Route path='*' element={<NotFound />} />
 
       </Route>

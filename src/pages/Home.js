@@ -1,31 +1,17 @@
-import React, { useState } from 'react'
-import Contact from './Contact';
+import React, { useEffect, useState } from 'react'
 
 const Home = () => {
-  const [data, setData] = useState([]);
-
-  const addSome = (obj) => {
-    setData([...data, obj]);
-  }
-  const remove =(index) => {
-    data.splice(index,1);
-    setData([...data]);
-  }
-
-console.log(data);
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    console.log('hello');
+  },[n])
   return (
     <div>
-      <Contact addSome={addSome} />
 
-      {data.map((post,i) => {
-        return <div key={i} className='shadow-xl max-w-lg flex items-baseline justify-between'>
-         <div>
-           <h1>{post.title}</h1>
-          <p>{post.detail}</p></div>
+      {/* hello is called when value changes everytime */}
+      <button onClick={() => setN((prev) => (prev+1))}>Change to</button>
+      {/* instead of prev + 1, we can also use n+1 in above line */}
 
-          <button onClick={remove}><i className ="fa-solid fa-trash"></i></button>
-        </div>
-      })}
     </div>
   )
 }
