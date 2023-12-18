@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
 const Home = () => {
-  const [n, setN] = useState(0);
-  useEffect(() => {
-    console.log('hello');
-  },[n])
-  return (
-    <div>
+  useEffect(() => {}, []);
 
-      {/* hello is called when value changes everytime */}
-      <button onClick={() => setN((prev) => (prev+1))}>Change to</button>
-      {/* instead of prev + 1, we can also use n+1 in above line */}
+  setInterval(() => {
+    console.log("It is repeated in every time interval defined in setInterval");
+  }, 5000);
 
-    </div>
-  )
-}
+  setTimeout(() => {
+    console.log(
+      "It doesnot block the successing task even if it takes time to run"
+    );
+  }, 4000);
+  console.log("Native");
 
-export default Home
+  return <div></div>;
+};
+
+export default Home;
