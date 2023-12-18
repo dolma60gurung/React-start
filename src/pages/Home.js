@@ -1,25 +1,31 @@
 import React, { useState } from 'react'
-import Sample from './Sample';
-import { movie } from '../dummy/movie_data';
+import Contact from './Contact';
 
 const Home = () => {
+  const [data, setData] = useState([]);
 
-  const [count, setCount] = useState(0);
-  const addTo = () =>{
-    setCount((prev) => prev + 1 );
+  const addSome = (obj) => {
+    setData([...data, obj]);
   }
-  const minusTo = () =>{
-    setCount((prev) => prev - 1 );
+  const remove =(index) => {
+    data.splice(index,1);
+    setData([...data]);
   }
 
- const moviedata = movie;
- const m = {
-  mo : 90
- };
+console.log(data);
   return (
-    <div className='p-5'>
-      <h1>{count}</h1>
-      <Sample  minusTo={minusTo} some={900} addTo={addTo}/>
+    <div>
+      <Contact addSome={addSome} />
+
+      {data.map((post,i) => {
+        return <div key={i} className='shadow-xl max-w-lg flex items-baseline justify-between'>
+         <div>
+           <h1>{post.title}</h1>
+          <p>{post.detail}</p></div>
+
+          <button onClick={remove}><i className ="fa-solid fa-trash"></i></button>
+        </div>
+      })}
     </div>
   )
 }

@@ -1,6 +1,8 @@
-// November 29, 2023
-// useState for increasing and decreasing counts part 2
-//passing as prop 
+// November 30, 2023
+// using formik for creating form
+//Hooks
+//resetting the form
+//useState, 
 
 import React from 'react'
 import { Route, Routes } from 'react-router'
@@ -21,7 +23,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path='detail/:id' element={<DetailPage />} />
          <Route path='about' element={<About />} />
-         <Route path='contact' element={<Contact/>} />
+         <Route path='/contact' element={<Contact/>} />
           <Route path='*' element={<NotFound />} />
 
       </Route>

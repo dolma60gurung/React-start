@@ -1,14 +1,56 @@
+import { useFormik } from 'formik'
 import React from 'react'
 
-const Contact = () => {
+const Contact = ({addSome}) => {
+  const formik = useFormik({
+    initialValues :{
+      title :'',
+      detail :''
+    },
+    onSubmit : (val, {resetForm}) => {
+      console.log(val);
+      addSome(val);
+      resetForm();
+    }
+  });
   return (
-   <>
-    <div className='h-[300px]'>
-<dotlottie-player src="https://lottie.host/a68bf31d-f9bf-41c7-987f-9a9fd8ec848f/wW3OYySdTE.json" background="transparent" speed="1"  loop autoplay></dotlottie-player>
+
+    <div className='p-7'>
+
+      <form onSubmit={formik.handleSubmit}>
+
+        <p className='space-y-3'>
+          <label htmlFor="title">Title</label>
+        <br />
+        <input
+        name="title"
+         id="title" 
+         onChange={formik.handleChange}
+         value={formik.values.title}
+         className='border-2 border-orange-300 px-2 outline-none focus:ring-orange-400 focus:ring-4'type="text" placeholder='title'/>
+         </p>
+
+        <p>
+          <label htmlFor="detail">Detail</label>
+        <br />
+        <textarea 
+        name="detail"
+        id="detail" 
+        onChange={formik.handleChange}
+        value={formik.values.detail}
+        className='border-2 border-orange-700 px-2'cols="19" rows="10"></textarea>
+        </p>
+
+        <button 
+        type='submit'
+        className='mt-2 bg-green-500 text-white px-3 py-2 rounded-md'>Submit
+        </button>
+
+      </form>
+
     </div>
-    <p className='text-center text-fuchsia-600 font-serif'>Oops! Something went wrong.</p>
-   </>
   )
 }
 
 export default Contact
+
