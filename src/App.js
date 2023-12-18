@@ -1,6 +1,6 @@
 // November 29, 2023
-// useState for increasing and decreasing counts 
-//part 2
+// useState for increasing and decreasing counts part 2
+//passing as prop 
 
 import React from 'react'
 import { Route, Routes } from 'react-router'
