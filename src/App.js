@@ -1,6 +1,8 @@
 // December 01, 2023
 //Hooks
 //useState, useEffect => setInterval. setTimeOut
+//async
+//then(),catch()
 
 import React from "react";
 import { Route, Routes } from "react-router";
