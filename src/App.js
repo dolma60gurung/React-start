@@ -1,8 +1,8 @@
-// December 01, 2023
+// December 01, 2023 part 2
 //Hooks
 //axios : npm i axios
 //async
-//try, catch
+//try, catch errors
 
 import React from "react";
 import { Route, Routes } from "react-router";

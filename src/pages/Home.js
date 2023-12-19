@@ -9,11 +9,9 @@ const Home = () => {
   const getProducts = async () => {
     try {
       setLoad(true);
-      console.log("before response");
-      const response = await axios.get("https://dummyson.com/products");
+      const response = await axios.get("https://dummyjson.com/products");
       setLoad(false);
-      console.log("after response");
-      console.log(response.data);
+      setData(response.data);
     } catch (err) {
       setLoad(false);
       setErr(err.message);
@@ -23,23 +21,25 @@ const Home = () => {
   useEffect(() => {
     getProducts();
   }, []);
+
   if (load) {
-    return <h1>Loading...</h1>;
+    return <h1>Loading....</h1>;
   }
 
   if (err) {
     return <h1>{`${err}`}</h1>;
   }
+
   // setInterval(() => {
-  //   console.log("It is repeated in every time interval defined in setInterval");
-  // }, 5000);
+  //   console.log('lio');
+  // }, 1000)
 
   // setTimeout(() => {
-  //   console.log(
-  //     "It doesnot block the successing task even if it takes time to run"
-  //   );
-  // }, 4000);
-  // console.log("Native");
+  //   console.log('lio');
+  // }, 4000)
+  // console.log('hello jee');
+
+  console.log(data);
 
   return <div></div>;
 };
