@@ -2,22 +2,34 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const Home = () => {
-  useEffect(() => {}, []);
+  const [data, setData] = useState(null);
+  const [load, setLoad] = useState(false);
+  const [err, setErr] = useState(null);
 
   const getProducts = async () => {
-    return axios.get("https://dummyjson.com/products");
+    try {
+      setLoad(true);
+      console.log("before response");
+      const response = await axios.get("https://dummyson.com/products");
+      setLoad(false);
+      console.log("after response");
+      console.log(response.data);
+    } catch (err) {
+      setLoad(false);
+      setErr(err.message);
+    }
   };
-  // const m = getProducts();
-  // console.log(m);
 
-  getProducts()
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  useEffect(() => {
+    getProducts();
+  }, []);
+  if (load) {
+    return <h1>Loading...</h1>;
+  }
 
+  if (err) {
+    return <h1>{`${err}`}</h1>;
+  }
   // setInterval(() => {
   //   console.log("It is repeated in every time interval defined in setInterval");
   // }, 5000);

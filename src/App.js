@@ -1,8 +1,8 @@
 // December 01, 2023
 //Hooks
-//useState, useEffect => setInterval. setTimeOut
+//axios : npm i axios
 //async
-//then(),catch()
+//try, catch
 
 import React from "react";
 import { Route, Routes } from "react-router";
